@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   devise_for :users
 
   get '/home', to: 'users#home'
-  root to: 'users#login'
+  root to: 'users#home'
 
 end
