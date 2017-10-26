@@ -1,0 +1,82 @@
+<body class='homebackground'></div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <div class="dropdown">
+        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Language
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">English</a>
+          <a class="dropdown-item" href="#">Chinese</a>
+          <a class="dropdown-item" href="#">Bla Bla</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</nav>
+<br>
+
+
+<div class="container topmargin">
+  <div class="row">
+    <div class="col-6">
+      <a1> Welcome to Twitter.<br>
+      <br>
+      Connect with your friends — and other fascinating people. Get in-the-moment updates on the things that interest you. And watch events unfold, in real time, from every angle.
+      </a1>
+    </div>
+
+    <div class="col-6">
+    <div class="card align-items-center centerblock" style="width: 17rem;" >
+      <div class="card-body">
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-inputs">
+        <%= f.input :email, :placeholder => "Username", required: false, autofocus: true, label: false %>
+        <%= f.input :password, :placeholder => "Password", required: false, label: false %>
+        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Log in", :class => 'btn btn-primary' %>
+      </div>
+        <% end %>
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+      <br>
+    <div class="card align-items-center centerblock" style="width: 17rem;" >
+        <div class="card-body">
+          <h5><b>New to Twitter? Sign up</b></h5>
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.input :name, :placeholder => "Full Name", required: true, label: false %>
+          <!-- <%= f.input :username, required: true %> -->
+          <%= f.input :email, :placeholder => "Email",  required: true, autofocus: true, label: false %>
+          <%= f.input :password, :placeholder => "Password", required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), label: false %>
+          <%= f.input :password_confirmation, :placeholder => "Confirm Password", required: true, label: false %>
+        </div>
+        <br>
+        <div class="form-actions">
+          <%= f.button :submit, "Sign up for Twitter", :class => 'btn btn-primary' %>
+        </div>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</div>
+</div>
