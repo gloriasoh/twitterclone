@@ -1,0 +1,4 @@
+<%= simple_form_for @tweet, url: new_user_tweet_path do |f| %>
+<%= f.input :message, :placeholder => "What's happening?", required: false, label: false %>
+<%= f.button :submit %>
+<% end %>
