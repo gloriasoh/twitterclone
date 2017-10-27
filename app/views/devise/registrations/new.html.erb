@@ -1,19 +1,47 @@
-<h2>Sign up</h2>
+
+<nav class="navbar navbar-expand-lg navigation-top">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <%= notice %>
+      <%= alert %>
+      <div class="dropdown">
+        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Language
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">English</a>
+          <a class="dropdown-item" href="#">Chinese</a>
+          <a class="dropdown-item" href="#">Bla Bla</a>
+        </div>
+      </div>
+      Have an account? <%= render "devise/shared/links" %>
+    </form>
+  </div>
+</nav>
+
+<div class="container-fluid topmargin">
+<div class="align-items-center centerblock">
+<h3><b>Join Twitter today.</b></h3>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name, required: true %>
-    <!-- <%= f.input :username, required: true %> -->
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, required: true %>
+    <%= f.input :name, :placeholder => "Full Name", required: true, label: false %>
+    <%= f.input :email, :placeholder => "Email", required: true, autofocus: true, label: false %>
+    <%= f.input :password, :placeholder => "Password", required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), label: false %>
+    <%= f.input :password_confirmation,:placeholder => "Confirm Password", required: true, label: false %>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit, "Sign up" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
+</div>
+</div>
