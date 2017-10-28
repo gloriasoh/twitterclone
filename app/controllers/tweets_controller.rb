@@ -23,6 +23,8 @@ before_action :authenticate_user!
   end
 
   def destroy
+    @user = current_user
+    @tweet = @user.tweets.find(params[:id])
       @tweet.destroy
       redirect_to root_url
   end

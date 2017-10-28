@@ -53,7 +53,9 @@
   <% end %>
   <br>
   <% @tweets.each do |f| %>
-  <%= f.message %><br>
+  <br><%= f.message %>
+  <%= link_to 'x', tweet_path(f), method: :delete, data: { confirm: 'Are you sure?'} %>
+
   <% end %>
 </div>
 </div>
