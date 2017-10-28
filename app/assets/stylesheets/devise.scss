@@ -31,3 +31,33 @@ body.home {
 .navigation-top {
   background-color: #47BDC1;
 }
+
+// simple form style
+// starts here
+
+.simple_form div.input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.field_with_errors {
+  background-color: #ff3333;
+}
+
+.simple_form .error {
+  color: white;
+  display: block;
+}
+
+div.boolean, .simple_form input[type='submit'] {
+  float: right;
+  background-color: #1DA1F2;
+  color: white;
+}
+
+// simple form style
+// ends here
+
+.messagedelete {
+float: right;
+}
