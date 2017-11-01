@@ -64,3 +64,6 @@ gem 'simple_form'
 
 # Devise
 gem 'devise'
+
+# Country
+gem 'country_select'
