@@ -62,7 +62,14 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    countries (1.2.5)
+      currencies (~> 0.4.2)
+      i18n_data (~> 0.7.0)
+    country_select (2.5.2)
+      countries (~> 1.2.0)
+      sort_alphabetical (~> 1.0)
     crass (1.0.2)
+    currencies (0.4.2)
     devise (4.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -82,6 +89,7 @@ GEM
       activesupport (>= 4.2.0)
     i18n (0.9.0)
       concurrent-ruby (~> 1.0)
+    i18n_data (0.7.0)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -180,6 +188,8 @@ GEM
     simple_form (3.5.0)
       actionpack (> 4, < 5.2)
       activemodel (> 4, < 5.2)
+    sort_alphabetical (1.1.0)
+      unicode_utils (>= 1.2.2)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -202,6 +212,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
+    unicode_utils (1.4.0)
     warden (1.2.7)
       rack (>= 1.0)
     web-console (3.5.1)
@@ -222,6 +233,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
+  country_select
   devise
   factory_bot_rails
   jbuilder (~> 2.5)

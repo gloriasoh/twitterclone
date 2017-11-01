@@ -2,10 +2,16 @@ class TweetsController < ApplicationController
 
 before_action :authenticate_user!
 
-  def index
+  def home
     @tweet = Tweet.new
-    @tweets = Tweet.all
+    @user = current_user
+    @tweets = @user.tweets
   end
+
+  # def index
+  #   @tweet = Tweet.new
+  #   @tweets = Tweet.all
+  # end
 
   def new
     @tweet = Tweet.new
@@ -24,7 +30,7 @@ before_action :authenticate_user!
 
   def destroy
     @user = current_user
-    @tweet = @user.tweets.find(params[:id])
+    @tweet = Tweet.find(params[:id])
       @tweet.destroy
       redirect_to root_url
   end

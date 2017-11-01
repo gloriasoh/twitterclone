@@ -2,12 +2,10 @@ class UsersController < ApplicationController
 
 before_action :authenticate_user!
 
-  def edit
-    @user = User.find[params[:id]]
+  def home
+    @users = User.all
   end
 
-  def show
-  end
 
   def new
   end
@@ -16,9 +14,12 @@ before_action :authenticate_user!
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def update
+    @user = User.find(params[:id])
+    @user.update
   end
 
   def destroy
