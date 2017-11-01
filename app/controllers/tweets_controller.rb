@@ -2,7 +2,7 @@ class TweetsController < ApplicationController
 
 before_action :authenticate_user!
 
-  def home
+  def index
     @tweet = Tweet.new
     @tweets = Tweet.all
   end
