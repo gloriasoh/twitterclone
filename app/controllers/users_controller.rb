@@ -3,7 +3,12 @@ class UsersController < ApplicationController
 before_action :authenticate_user!
 
   def home
-    @users = User.all
+    @user = current_user.all
+  end
+
+  def show
+    @user = User.find(params[:id])
+    @tweets = @user.tweets
   end
 
 
