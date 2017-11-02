@@ -1,4 +1,4 @@
 <%= simple_form_for @tweet do |f| %>
-<%= f.input :message, :placeholder => "What's happening?", required: false, label: false, :input_html => {:style=> 'width: 465px'}%>
+<%= f.input :message, :placeholder => "What's happening?", required: true, label: false, :input_html => {:style=> 'width: 465px'}%>
 <%= f.button :submit %>
 <% end %>

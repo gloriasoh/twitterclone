@@ -25,7 +25,8 @@ before_action :authenticate_user!
       redirect_to home_path
     else
       @tweets = Tweet.all
-      render :home
+      redirect_to home_path
+      flash[:error] = 'cant be blank'
     end
   end
 
