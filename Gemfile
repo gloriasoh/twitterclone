@@ -67,3 +67,5 @@ gem 'devise'
 
 # Country
 gem 'country_select'
+
+gem "paperclip", "~> 5.0.0"

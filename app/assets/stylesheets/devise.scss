@@ -38,6 +38,7 @@ body.home {
 .simple_form div.input {
   margin-top: 10px;
   margin-bottom: 10px;
+
 }
 
 .field_with_errors {
@@ -64,6 +65,43 @@ float: right;
 
 .messagetime {
 font-size: 10px;
-padding-bottom: 8px;
 color: #657786;
+}
+
+.username-style {
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: -1.5px;
+}
+
+.img {
+  width: 50%;
+  border-radius: 50%;
+}
+
+.thumbnail {
+  width: 10%;
+  border-radius: 50%;
+  float: left;
+}
+
+.navbar img{
+  display:block;
+  margin: 0px auto;
+}
+
+.followersicon {
+  width: 25%;
+  border-radius: 50%;
+  float: left;
+
+}
+
+.info {
+  float: left;
+  font-size: 15px;
+}
+
+.datetime {
+  font-size: 10px;
 }

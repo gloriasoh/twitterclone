@@ -8,12 +8,14 @@
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 <ul class="navbar-nav mr-auto">
   <li class="nav-item active">
-    <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+    <a class="nav-link" href="/home">Home<span class="sr-only">(current)</span></a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="#">About</a>
   </li>
 </ul>
+
+ <%=image_tag("Twitter.png", height: '32', width: '32')%>
 
 <form class="form-inline my-2 my-lg-0">
   <%= notice %>
@@ -39,14 +41,13 @@
   <div class="row">
     <div class="col">
       <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">Profile</h4>
+        <div class="card-body text-center">
+          <h4 class="card-title"><b><%= @user.name %></b></h4>
           <p class="card-text">
-            <%= @user.name %><br>
+            <%= image_tag @user.avatar.url(:medium), :class => "img-fluid img" %><br><br>
             <%= @user.birthday %><br>
             <%= @user.bio %><br>
-            <%= @user.country %>
-            <br><br>
+            <%= @user.country %><br><br>
             <%= link_to 'Edit Profile', edit_user_registration_path, method: :get%>
           </p>
         </div>
@@ -62,11 +63,16 @@
             <hr>
             <% @tweets.each do |f| %>
             <div class ="messagetime">
-            <%= f.created_at %>
             <%= link_to 'X', tweet_path(f), method: :delete, data: { confirm: 'Are you sure?'}, class: 'messagedelete' %>
             </div>
+            <div class="info">
+            <%= image_tag @user.avatar.url, :class => "img-fluid thumbnail"%>
+            <b><%= @user.name %> </b>
+            <%= f.created_at.strftime(" %d %B")  %><br>
             <%= f.message %>
             <hr>
+            </div>
+            <br><br>
             <% end %>
           </div>
         </div>
@@ -75,19 +81,24 @@
 
     <div class="col">
       <div class="card">
-        <div class="card-body">
+        <div class="card-body text-center">
           <h4 class="card-title">Who to follow</h4>
-            <p class="card-text">
-              <% @users.each do |user| %>
-                <%= link_to user.name, user_path(user) %>
-                <% if current_user.following?(user) %>
-                  <%= render partial: "unfollow", locals: { user: user }  %>
-                <% else %>
-                   <%= render partial: "follow", locals: { user: user } %>
-                <% end %>
-              <% end %>
 
-            </p>
+          <% @users.each do |user| %>
+          <div class ="info">
+            <%= image_tag user.avatar.url, :class => "img-fluid followersicon"%>
+
+            <%= link_to user.name, user_path(user) %>
+
+            <% if current_user.following?(user) %>
+              <br><%= render partial: "unfollow", locals: { user: user }  %>
+            <% else %>
+               <br><%= render partial: "follow", locals: { user: user } %>
+            <% end %>
+          </div>
+          <% end %>
+
+
           </div>
         </div>
     </div>
