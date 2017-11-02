@@ -1,0 +1,10 @@
+<%= @user.name %><br>
+<%= @user.birthday %><br>
+<%= @user.bio %><br>
+<%= @user.country %><br>
+<br>
+
+<% @tweets.each do |f| %>
+<%= f.created_at %><br>
+<%= f.message %><br>
+<% end %>

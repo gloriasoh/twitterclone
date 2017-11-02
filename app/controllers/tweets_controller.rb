@@ -6,6 +6,7 @@ before_action :authenticate_user!
     @tweet = Tweet.new
     @user = current_user
     @tweets = @user.tweets
+    @users =  User.all.where("id != ?", current_user.id)
   end
 
   # def index
