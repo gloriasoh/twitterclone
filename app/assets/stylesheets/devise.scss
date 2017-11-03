@@ -4,17 +4,15 @@
 }
 
 .topmargin {
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
-.homebackground {
-  background-image: asset_url('background.jpg');
-  background-repeat: no-repeat;
-  background-size: 100%;
+.welcometext {
+  font-size: 10px;
 }
 
 a1 {
-  font-size: 25px;
+  font-size: 20px;
   color: white;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-weight: bold;
@@ -75,7 +73,8 @@ color: #657786;
 }
 
 .img {
-  width: 50%;
+  width: 85%;
+  border: 5px solid white;
   border-radius: 50%;
 }
 
@@ -83,11 +82,7 @@ color: #657786;
   width: 10%;
   border-radius: 50%;
   float: left;
-}
-
-.navbar img{
-  display:block;
-  margin: 0px auto;
+  margin-right: 1%;
 }
 
 .followersicon {
@@ -100,8 +95,86 @@ color: #657786;
 .info {
   float: left;
   font-size: 15px;
+  position: relative;
+  margin-top: -2%
 }
 
 .datetime {
   font-size: 10px;
+}
+
+.othertable {
+  width: 500px;
+}
+
+.stats {
+  overflow: auto;
+  margin-top: 0;
+  text-align: center;
+  color: gray;
+  a {
+    display: inline-block;
+    padding: 0 2px;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: blue;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+.navbg {
+background-color: white
+}
+
+.navlink {
+  font-size:13px;
+  color: #1B98E6;
+  float: right;
+
+}
+//////// Carousel
+
+.carousel {
+    position:absolute;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+}
+.navbar {
+    position:absolute;
+
+    z-index:10;
+    background:#fff;
+    width:100%;
+}
+
+.carousel-caption {
+  top: 45%;
+  left: 20%;
+  font-size: 12px;
+  text-align: left;
+}
+
+///////
+
+#popup {
+    height: 50px;
+    width: 200px;
+    text-align: center;
+    vertical-align:middle;
+    background-color: cornflowerblue;
+    color: white;
+    display: none;
+    padding-top: 8px;
+
+
+    position: absolute;
 }

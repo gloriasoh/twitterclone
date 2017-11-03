@@ -9,10 +9,6 @@ before_action :authenticate_user!
     @users =  User.all.where("id != ?", current_user.id)
   end
 
-  # def index
-  #   @tweet = Tweet.new
-  #   @tweets = Tweet.all
-  # end
 
   def new
     @tweet = Tweet.new

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-before_action :authenticate_user!
+before_action :authenticate_user!, except: [:show]
 
   def home
     @user = current_user.all
@@ -9,6 +9,7 @@ before_action :authenticate_user!
   def show
     @user = User.find(params[:id])
     @tweets = @user.tweets
+    @users = User.all
   end
 
 
