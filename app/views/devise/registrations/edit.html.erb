@@ -1,28 +1,7 @@
-
-<nav class="navbar navbar-expand-lg navigation-top">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav">
-    </ul>
-
-      <div class="mx-auto">
-     <%=image_tag("Twitter.png", height: '32', width: '32')%>
-    </div>
-
-    <form class="form-inline my-2 my-lg-0">
-      <%= notice %>
-      <%= alert %>
-      Have an account? <%= render "devise/shared/links" %>
-    </form>
-  </div>
-</nav>
-
+<body class="editbackground">
 <div class="container-fluid topmargin">
 <div class="align-items-center centerblock">
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+  <h2><b>Edit <%= resource_name.to_s.humanize %></b></h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= f.error_notification %>
@@ -34,6 +13,7 @@
       <%= f.input :name, required: true, autofocus: true %>
       <%= f.input :bio, autofocus: true %>
       <%= f.input :birthday, as: :date, start_year: Date.today.year - 90, end_year: Date.today.year - 12, order: [:day, :month, :year] %>
+      <%= f.label :country %>
       <%= f.country_select :country %>
 
       <%= f.input :email, required: true, autofocus: true %>
@@ -52,7 +32,7 @@
     </div>
   <% end %>
 <br>
-  <h3>Cancel my account</h3>
+  <h3><b>Cancel my account</b></h3>
 
   <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 

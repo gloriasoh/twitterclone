@@ -59,7 +59,26 @@
               </div>
             <br>
             <%= link_to 'Edit Profile', edit_user_registration_path, method: :get%>
+            </ul>
           </p>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <div class="card">
+      <div class="card-block text-center">
+        <h3 class="card-title"><b>Hashtags</b></h3>
+
+          <% @hashtags.each do |hashtag| %>
+          <li><%= link_to hashtag.name, hashtag_path(hashtag.name) %></li>
+        <% end -%>
+        <br>
+
+      </div>
+    </div>
+
+
         </div>
       </div>
     </div>

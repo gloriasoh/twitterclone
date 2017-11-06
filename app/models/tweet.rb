@@ -5,5 +5,6 @@ class Tweet < ApplicationRecord
 
   validates :message, presence: true, length: { maximum: 140}
 
-
+  include SimpleHashtag::Hashtaggable
+    hashtaggable_attribute :message
 end

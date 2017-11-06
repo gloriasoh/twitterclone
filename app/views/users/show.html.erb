@@ -30,7 +30,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-3">
+    <div class="col-4">
       <div class="card-style">
         <div class="card-body text-center">
           <%= image_tag @user.avatar.url, :class => "img-fluid img" %>
@@ -56,18 +56,22 @@
                   </strong></a>
               </div>
             <br><br>
+
           </p>
         </div>
       </div>
     </div>
 
-    <div class="col-6">
+    <div class="col-8">
       <div class="align-items-center centerblock">
         <div class="card othertable">
           <div class="card-body">
-
-            <hr>
-            <% @tweets.each do |f| %>
+            <% if @tweets.count == 0 %>
+            <div class="text-center">
+            <h3>No tweets available</h3>
+            </div>
+            <% else %>
+            <br><% @tweets.each do |f| %>
             <div class="info">
             <%= image_tag @user.avatar.url, :class => "img-fluid thumbnail"%>
             <b><%= @user.name %> </b>
@@ -76,22 +80,13 @@
             <hr>
             </div>
             <% end %>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="col-3">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">Who to follow</h4>
-            <p class="card-text">
 
-
-            </p>
-          </div>
-        </div>
-    </div>
   </div>
 </div>
 

@@ -5,6 +5,11 @@
 
 .topmargin {
   margin-top: 100px;
+  background-color: #ffffff;
+}
+
+.editbackground {
+  background-color: #1B98E6;
 }
 
 .welcometext {
@@ -54,6 +59,11 @@ body.home {
   color: white;
 }
 
+input, select {
+
+            box-sizing: border-box;
+}
+
 // simple form style
 // ends here
 
@@ -62,7 +72,8 @@ float: right;
 }
 
 .messagetime {
-font-size: 10px;
+font-size: 13px;
+margin: 0;
 color: #657786;
 }
 
@@ -104,7 +115,7 @@ color: #657786;
 }
 
 .othertable {
-  width: 500px;
+  width: 600px;
 }
 
 .stats {

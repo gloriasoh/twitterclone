@@ -69,3 +69,5 @@ gem 'devise'
 gem 'country_select'
 
 gem "paperclip", "~> 5.0.0"
+
+gem 'simple_hashtag'
