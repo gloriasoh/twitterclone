@@ -1,41 +1,34 @@
 <body class="home">
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
+<nav class="navbar navbar-expand-lg navbar-light navbg ">
 
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-<ul class="navbar-nav mr-auto">
-  <li class="nav-item active">
-    <a class="nav-link" href="/home">Home<span class="sr-only">(current)</span></a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">About</a>
+<ul class="navbar-nav">
+  <li class="nav-item active ">
+    <a class="navlink" href="/home"><img src="assets/home.png", height="20px", width="20px"><b>Home</b><span class="sr-only">(current)</span></a>
   </li>
 </ul>
 
+  <div class="mx-auto">
  <%=image_tag("Twitter.png", height: '32', width: '32')%>
+</div>
+
 
 <form class="form-inline my-2 my-lg-0">
-  <%= notice %>
-  <%= alert %>
   <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-  <div class="dropdown">
-    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Language
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" href="#">English</a>
-      <a class="dropdown-item" href="#">Chinese</a>
-      <a class="dropdown-item" href="#">Bla Bla</a>
-    </div>
-  </div>
+
 </form>
 </div>
 </nav>
 
+<div class="text-center">
+<%= notice %>
+<%= alert %>
+</div>
 <br>
+<br>
+<br>
+
 
 <div class="container">
   <div class="row">
@@ -44,12 +37,48 @@
         <div class="card-body text-center">
           <h4 class="card-title"><b><%= @user.name %></b></h4>
           <p class="card-text">
-            <%= image_tag @user.avatar.url(:medium), :class => "img-fluid img" %><br><br>
+            <%= image_tag @user.avatar.url, :class => "img-fluid img" %><br><br>
             <%= @user.birthday %><br>
             <%= @user.bio %><br>
-            <%= @user.country %><br><br>
+            <%= @user.country %><br>
+            <% @user ||= current_user %>
+            <div class="stats">
+               <a>Tweets
+                <strong id="following" class="stat">
+                  <%= @user.tweets.count %>
+                </strong></a>
+                <a>Following
+                  <strong id="following" class="stat">
+                    <%= @user.followeds.count %>
+                  </strong>
+                </a>
+                  <a>Followers
+                  <strong id="followers" class="stat">
+                    <%= @user.followers.count %>
+                  </strong></a>
+              </div>
+            <br>
             <%= link_to 'Edit Profile', edit_user_registration_path, method: :get%>
+            </ul>
           </p>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <div class="card">
+      <div class="card-block text-center">
+        <h3 class="card-title"><b>Hashtags</b></h3>
+
+          <% @hashtags.each do |hashtag| %>
+          <li><%= link_to hashtag.name, hashtag_path(hashtag.name) %></li>
+        <% end -%>
+        <br>
+
+      </div>
+    </div>
+
+
         </div>
       </div>
     </div>
@@ -67,7 +96,8 @@
             </div>
             <div class="info">
             <%= image_tag @user.avatar.url, :class => "img-fluid thumbnail"%>
-            <b><%= @user.name %> </b>
+
+            <b><%= @user.name %> </b>	•
             <%= f.created_at.strftime(" %d %B")  %><br>
             <%= f.message %>
             <hr>
@@ -81,21 +111,23 @@
 
     <div class="col">
       <div class="card">
-        <div class="card-body text-center">
-          <h4 class="card-title">Who to follow</h4>
+        <div class="card-body">
+          <h5 class="card-title">Who to follow</h4><br>
 
           <% @users.each do |user| %>
-          <div class ="info">
+          <div class ="info text-center">
             <%= image_tag user.avatar.url, :class => "img-fluid followersicon"%>
 
             <%= link_to user.name, user_path(user) %>
 
             <% if current_user.following?(user) %>
-              <br><%= render partial: "unfollow", locals: { user: user }  %>
+              <%= render partial: "unfollow", locals: { user: user }  %>
             <% else %>
-               <br><%= render partial: "follow", locals: { user: user } %>
+               <%= render partial: "follow", locals: { user: user } %>
             <% end %>
+            <br>
           </div>
+
           <% end %>
 
 
@@ -104,15 +136,3 @@
     </div>
   </div>
 </div>
-
-
-<!-- <div class="row">
-  <div class="col-4 col-sm-2">
-    <div class="card">
-      <div class="card-body">
-        <h4 class="card-title">Who to follow</h4>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-    </div>
-  </div>
-</div> -->

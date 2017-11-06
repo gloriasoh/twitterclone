@@ -7,12 +7,9 @@ before_action :authenticate_user!
     @user = current_user
     @tweets = @user.tweets
     @users =  User.all.where("id != ?", current_user.id)
+    @hashtags = SimpleHashtag::Hashtag.all
   end
 
-  # def index
-  #   @tweet = Tweet.new
-  #   @tweets = Tweet.all
-  # end
 
   def new
     @tweet = Tweet.new
