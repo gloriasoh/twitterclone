@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   root to: 'tweets#home'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  
   resources :users, only: [:show]
   resources :tweets
   resources :followings, only: [:create, :destroy]
