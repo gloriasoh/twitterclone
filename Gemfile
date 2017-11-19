@@ -41,6 +41,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'rspec-rails', '~> 3.6'
   gem 'factory_bot_rails'
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -71,3 +72,5 @@ gem 'country_select'
 gem "paperclip", "~> 5.0.0"
 
 gem 'simple_hashtag'
+
+gem 'omniauth-facebook'
